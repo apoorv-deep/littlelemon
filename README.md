@@ -13,3 +13,41 @@ A small Django app (coursera project) that demonstrates a simple booking system 
 - The main API endpoint for automated testing is /bookings (GET and POST).
 - Use application/json for POST requests.
 - If a slot is already booked for a date, the POST will return an error response.
+
+## Project Setup Steps
+
+Follow these steps to set up the project:
+
+1. **Clone the repository**
+	```sh
+	git clone https://github.com/apoorv-deep/littlelemon.git
+	cd littlelemon
+	```
+
+2. **Create and configure `.env` file**
+	- Copy `.env.example` to `.env` (if available) and set your environment variables.
+	- Example:
+	  ```sh
+	  cp .env.example .env
+	  # Edit .env and set your values
+	  ```
+
+3. **Install dependencies**
+	```sh
+	pip install -r requirements.txt
+	```
+
+4. **Make migrations**
+	```sh
+	python manage.py makemigrations
+	```
+
+5. **Apply migrations**
+	```sh
+	python manage.py migrate
+	```
+
+6. **Run the development server**
+	```sh
+	python manage.py runserver
+	```
