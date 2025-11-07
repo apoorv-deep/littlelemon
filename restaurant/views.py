@@ -8,6 +8,8 @@ from datetime import datetime
 import json
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
+from rest_framework import viewsets, permissions
+from .serializers import BookingSerializer, MenuSerializer
 
 
 # Create your views here.
@@ -91,3 +93,18 @@ def bookings(request):
 
     # Return HttpResponse() with booking_json and content_type 'application/json'
     return HttpResponse(booking_json, content_type='application/json')
+
+
+# --- DRF viewsets for API (optional alongside the existing function views) ---
+class BookingViewSet(viewsets.ModelViewSet):
+    """API endpoint for bookings"""
+    queryset = Booking.objects.all()
+    serializer_class = BookingSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+
+class MenuViewSet(viewsets.ModelViewSet):
+    """API endpoint for menu items"""
+    queryset = Menu.objects.all()
+    serializer_class = MenuSerializer
+    permission_classes = [permissions.AllowAny]

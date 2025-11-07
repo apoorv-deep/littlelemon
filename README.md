@@ -51,3 +51,32 @@ Follow these steps to set up the project:
 	```sh
 	python manage.py runserver
 	```
+
+## API (DRF) and Authentication
+
+This project includes optional Django REST Framework (DRF) serializers and viewsets for the `Menu` and `Booking` models and Djoser-powered authentication routes.
+
+- API root for viewsets (registered under `/api/`):
+	- `/api/menu/`         - Menu list and detail endpoints (GET/POST/PUT/DELETE)
+	- `/api/bookings/`     - Booking list and detail endpoints (GET/POST/PUT/DELETE)
+
+- Authentication (Djoser):
+	- `/auth/users/`            - Djoser user registration endpoints
+	- `/auth/token/login/`      - Obtain auth token (if `rest_framework.authtoken` is installed)
+
+Notes to enable token auth
+
+1. Install required packages if you haven't already:
+	 ```powershell
+	 pip install djangorestframework djoser djangorestframework-authtoken
+	 ```
+
+2. Add `'rest_framework'`, `'rest_framework.authtoken'` and `'djoser'` to `INSTALLED_APPS` in `littlelemon/settings.py` (the project already includes `rest_framework` and `djoser` in `INSTALLED_APPS`; add `rest_framework.authtoken` if you want token endpoints).
+
+3. Run migrations to create the token models:
+	 ```sh
+	 python manage.py migrate
+	 ```
+
+4. Start the server and use the above endpoints.
+

@@ -11,3 +11,14 @@ Notes:
 - The main API endpoint for automated testing is /bookings (GET and POST).
 - Use application/json for POST requests.
 - If a slot is already booked for a date, the POST will return an error response.
+
+Additional API & setup notes:
+
+- DRF API endpoints (if DRF is installed and server running):
+  - /api/menu/      - Menu list and detail (GET/POST/...)
+  - /api/bookings/  - Booking list and detail (GET/POST/...)
+
+- Djoser auth endpoints (if djoser and authtoken are installed):
+  - /auth/users/        - registration and user endpoints
+  - /auth/token/login/  - obtain auth token
+
